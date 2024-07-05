@@ -440,7 +440,7 @@ namespace GroupCurves
 
             // Compute the K-Means algorithm until the difference in
             //  cluster centroids between two iterations is below 0.05
-            int[] idx = kmeans.Compute(pixels, 0.05);
+            int[] idx = kmeans.Compute(pixels );
 
             for (int i = 0; i < idx.Length; i++)
             {
@@ -472,13 +472,12 @@ namespace GroupCurves
             GaussianMixtureModel gmm = new GaussianMixtureModel(nGroups );
 
             // Compute the model
-            gmm.Compute(pixels );
-
-           
+           // gmm.Compute(pixels );
+            gmm.Learn(pixels );
+            var c = gmm.Compute(pixels);
             for (int j = 0; j < pixels.Length; j++)
             {
-                int c = gmm.Classify(pixels[j]);
-                datapoints2D[j].AssignColor(  c   );
+                datapoints2D[j].AssignColor(c[j]   );
             }
 
             Plot2D();
@@ -570,10 +569,10 @@ namespace GroupCurves
             for (int i = 0; i < nGroups; i++)
                 Lines[i] = new List<double[]>();
 
-            X = new double[h.Count];
+            X = new double[h.Bins.Count];
 
             cBCutLines.Items.Clear();
-            for (int i = 0; i < h.Count; i++)
+            for (int i = 0; i < h.Bins.Count; i++)
             {
                 double binCenter = (h.Bins[i].Range.Max + h.Bins[i].Range.Min) / 2;
                 for (int j = 0; j < nGroups; j++)
@@ -643,7 +642,7 @@ namespace GroupCurves
 
             // Compute the K-Means algorithm until the difference in
             //  cluster centroids between two iterations is below 0.05
-            int[] idx = kmeans.Compute(pixels, 0.05);
+            int[] idx = kmeans.Compute(pixels );
 
             Mins1D = new double[nGroups];
             Maxs1D = new double[nGroups];
@@ -688,9 +687,10 @@ namespace GroupCurves
             gmm.Compute(pixels);
 
             int[] idx = new int[pixels.Length];
+            var c = gmm.Compute(pixels);
             for (int j = 0; j < pixels.Length; j++)
             {
-                idx[j] = gmm.Classify(pixels[j]);
+                idx[j] = c[j];
             }
 
             Mins1D = new double[nGroups];

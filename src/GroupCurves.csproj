@@ -77,10 +77,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>MathNet\MathNet.Iridium.dll</HintPath>
     </Reference>
+    <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MathNet.Numerics.5.0.0\lib\net48\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -92,36 +97,32 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, PublicKeyToken=47d7877cb3620160">
+      <HintPath>packages\zlib.net.1.0.3.0\lib\zlib.net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllGroupVision.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AllGroupVision.cs" />
     <Compile Include="AllGroupVision.Designer.cs">
       <DependentUpon>AllGroupVision.cs</DependentUpon>
     </Compile>
     <Compile Include="CurveSection.cs" />
-    <Compile Include="DataMessageBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="DataMessageBox.cs" />
     <Compile Include="DataMessageBox.Designer.cs">
       <DependentUpon>DataMessageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="GroupName.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GroupName.cs" />
     <Compile Include="GroupName.Designer.cs">
       <DependentUpon>GroupName.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphSeperate.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GraphSeperate.cs" />
     <Compile Include="GraphSeperate.Designer.cs">
       <DependentUpon>GraphSeperate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportCurves.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ImportCurves.cs" />
     <Compile Include="ImportCurves.Designer.cs">
       <DependentUpon>ImportCurves.cs</DependentUpon>
     </Compile>
@@ -131,27 +132,19 @@
     <Compile Include="Loaders\LoadNIDat.cs" />
     <Compile Include="Loaders\MatLabLoader.cs" />
     <Compile Include="Loaders\TextLoader.cs" />
-    <Compile Include="ManualSort.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ManualSort.cs" />
     <Compile Include="ManualSort.Designer.cs">
       <DependentUpon>ManualSort.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxIgnore.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="MessageBoxIgnore.cs" />
     <Compile Include="MessageBoxIgnore.Designer.cs">
       <DependentUpon>MessageBoxIgnore.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgressReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ProgressReport.cs" />
     <Compile Include="ProgressReport.Designer.cs">
       <DependentUpon>ProgressReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectableGraph.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="SelectableGraph.cs" />
     <Compile Include="SelectableGraph.Designer.cs">
       <DependentUpon>SelectableGraph.cs</DependentUpon>
     </Compile>
@@ -174,9 +167,7 @@
     <Compile Include="Groups\GroupBin.cs" />
     <Compile Include="Groups\GroupBins.cs" />
     <Compile Include="Groups\GroupHolders.cs" />
-    <Compile Include="GroupVision.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GroupVision.cs" />
     <Compile Include="GroupVision.Designer.cs">
       <DependentUpon>GroupVision.cs</DependentUpon>
     </Compile>
@@ -256,12 +247,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="ZedGraph\ZedGraph.csproj">
-      <Project>{2541686B-1673-43BF-AF89-3163945DB009}</Project>
-      <Name>ZedGraph</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -292,6 +277,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License-LGPL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('packages\Accord.3.8.0\build\Accord.targets')" />

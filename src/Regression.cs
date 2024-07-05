@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Accord.Math;
 using MathNet.Numerics;
 using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Complex;
+using Matrix = MathNet.Numerics.LinearAlgebra.Complex.Matrix;
+
 namespace GroupCurves
 {
     public class Regression
@@ -15,28 +19,28 @@ namespace GroupCurves
             return DoRegresssion(graph, x, y, polynomialOrder);
         }
 
-        private static Matrix GetSolution(double[] x, double[] y, int polynomialOrder, ref bool noSolution)
+        private static Matrix<double> GetSolution(double[] x, double[] y, int polynomialOrder, ref bool noSolution)
         {
             // Build the matrix for the least-squares fitting
-            double[][] m = Matrix.CreateMatrixData(x.Length, polynomialOrder + 1);
+            double[,] m = new double[x.Length, polynomialOrder + 1];
             for (int i = 0; i < x.Length; i++)
             {
                 double xi = x[i];
-                double[] xrow = m[i];
-                xrow[0] = 1d;
-                for (int j = 1; j < xrow.Length; j++)
+               // double[] xrow = m[i];
+              //  xrow[0] = 1d;
+                for (int j = 1; j < m.GetLength(1); j++)
                 {
-                    xrow[j] = xrow[j - 1] * xi;
+                    m[i,j] = m[i,j - 1] * xi;
                 }
             }
 
             // Find the least-squares solution
             noSolution = false;
-            Matrix matrix = new Matrix(m);
-            Matrix solution = null;
+            Matrix<double> matrix = null;// DenseMatrix.OfArray (m);
+            Matrix<double> solution = null;
             try
             {
-                solution = matrix.Solve(new Matrix(y, y.Length));
+             //   solution = matrix.Solve(DenseMatrix.OfArray(y ));
             }
             catch
             {
@@ -68,14 +72,14 @@ namespace GroupCurves
 
             }
             bool noCorrection=false ;
-            Matrix solution=GetSolution(x,y,polynomialOrder,ref noCorrection);
+            Matrix<double> solution=GetSolution(x,y,polynomialOrder,ref noCorrection);
           
             //return solution.GetColumnVector(0);
 
             if (!noCorrection && solution.RowCount != 0)
             {
                 // Extract the values (in our case into a polynomial for fast evaluation)
-                Polynomial polynomial = new Polynomial(solution.GetColumnVector(0));
+                Polynomial polynomial = new Polynomial(solution.Column(0));
                 double d = 0;
 
 
@@ -117,7 +121,7 @@ namespace GroupCurves
 
                 solution = GetSolution(x2, y2, polynomialOrder, ref noCorrection);
                 // remove the background
-                polynomial = new Polynomial(solution.GetColumnVector(0));
+                polynomial = new Polynomial(solution.Column(0));
                
                 double[,] OutLine = new double[2, TestCurve.Curve.GetLength(1)];
                 double[,] OrigLine = TestCurve.Curve;
@@ -160,25 +164,24 @@ namespace GroupCurves
                 testSeg[1, i] = y[i];
             }
             // Build the matrix for the least-squares fitting
-            double[][] m = Matrix.CreateMatrixData(x.Length, polynomialOrder + 1);
+            double[,] m =new double[x.Length, polynomialOrder + 1];
             for (int i = 0; i < x.Length; i++)
             {
                 double xi = x[i];
-                double[] xrow = m[i];
-                xrow[0] = 1d;
-                for (int j = 1; j < xrow.Length; j++)
+               
+                for (int j = 1; j < m.GetLength(0); j++)
                 {
-                    xrow[j] = xrow[j - 1] * xi;
+                    m[i,j] = m[i,j - 1] * xi;
                 }
             }
 
             // Find the least-squares solution
             bool noCorrection = false;
-            Matrix matrix = new Matrix(m);
+            Matrix matrix = null;// DenseMatrix.OfArray(m);
             Matrix solution=null;
             try
             {
-                solution  = matrix.Solve(new Matrix(y, y.Length));
+               // solution  = matrix.Solve(  DenseMatrix.OfArray(y ));
             }
             catch
             {
@@ -190,7 +193,7 @@ namespace GroupCurves
             if (!noCorrection && solution.RowCount!=0)
             {
                 // Extract the values (in our case into a polynomial for fast evaluation)
-                Polynomial polynomial = new Polynomial(solution.GetColumnVector(0));
+                Polynomial polynomial = null;// new Polynomial(solution.GetColumnVector(0));
 
 
                 // remove the background
@@ -227,7 +230,7 @@ namespace GroupCurves
             //int polynomialOrder = 3;
 
             // Build the matrix for the least-squares fitting
-            double[][] m = Matrix.CreateMatrixData(x.Length, polynomialOrder + 1);
+            double[][] m = null;// Matrix.CreateMatrixData(x.Length, polynomialOrder + 1);
             for (int i = 0; i < x.Length; i++)
             {
                 double xi = x[i];
@@ -242,12 +245,12 @@ namespace GroupCurves
             try
             {
                 // Find the least-squares solution
-                Matrix matrix = new Matrix(m);
-                Matrix solution = matrix.Solve(new Matrix(y, y.Length));
+                Matrix matrix = null;// new Matrix(m);
+                Matrix solution = null;// matrix.Solve(new Matrix(y, y.Length));
 
                
                 // Extract the values (in our case into a polynomial for fast evaluation)
-                polynomial  = new Polynomial(solution.GetColumnVector(0));
+              //  polynomial  = new Polynomial(solution.Column(0));
             }
             catch
             { return 500; }
@@ -262,7 +265,7 @@ namespace GroupCurves
             {
                 Line[0, i] = x[i];
                 OriginalLine[0, i] = x[i];
-                Line[1, i] =polynomial.Evaluate(x[i]);
+              //  Line[1, i] =polynomial.Evaluate(x[i]);
                 OriginalLine[1, i] = y[i];
                 d= ( y[i]- Line[1,i]);
 
