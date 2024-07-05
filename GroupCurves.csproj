@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97B739E4-4CB0-4DCD-BBBE-A3BF10BEA966}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GroupCurves</RootNamespace>
+    <AssemblyName>GroupCurves</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord.MachineLearning, Version=2.1.3.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Accord.NET\Framework\Release\Accord.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=2.1.3.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Accord.NET\Framework\Release\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=2.1.3.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Accord.NET\Framework\Release\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge, Version=2.1.4.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Iridium, Version=2008.8.16.470, Culture=neutral, PublicKeyToken=c061a3ec32cc0c6f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MathNet\MathNet.Iridium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllGroupVision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllGroupVision.Designer.cs">
+      <DependentUpon>AllGroupVision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurveSection.cs" />
+    <Compile Include="DataMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataMessageBox.Designer.cs">
+      <DependentUpon>DataMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupName.Designer.cs">
+      <DependentUpon>GroupName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphSeperate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphSeperate.Designer.cs">
+      <DependentUpon>GraphSeperate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportCurves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportCurves.Designer.cs">
+      <DependentUpon>ImportCurves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loaders\gTextLoader.cs" />
+    <Compile Include="Loaders\DILoader.cs" />
+    <Compile Include="Loaders\IVSLoader.cs" />
+    <Compile Include="Loaders\LoadNIDat.cs" />
+    <Compile Include="Loaders\MatLabLoader.cs" />
+    <Compile Include="Loaders\TextLoader.cs" />
+    <Compile Include="ManualSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManualSort.Designer.cs">
+      <DependentUpon>ManualSort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxIgnore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxIgnore.Designer.cs">
+      <DependentUpon>MessageBoxIgnore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressReport.Designer.cs">
+      <DependentUpon>ProgressReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectableGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelectableGraph.Designer.cs">
+      <DependentUpon>SelectableGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SingleCurveComp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SingleCurveComp.Designer.cs">
+      <DependentUpon>SingleCurveComp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sorts\Bifurification.cs" />
+    <Compile Include="Sorts\ChainAssign.cs" />
+    <Compile Include="FileHandler.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graphing.cs" />
+    <Compile Include="Groups\GroupBin.cs" />
+    <Compile Include="Groups\GroupBins.cs" />
+    <Compile Include="Groups\GroupHolders.cs" />
+    <Compile Include="GroupVision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupVision.Designer.cs">
+      <DependentUpon>GroupVision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Groups\IndividualCurveStats.cs" />
+    <Compile Include="Relaxations\MonteShaker.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AllGroupVision.resx">
+      <DependentUpon>AllGroupVision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataMessageBox.resx">
+      <DependentUpon>DataMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupName.resx">
+      <DependentUpon>GroupName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphSeperate.resx">
+      <DependentUpon>GraphSeperate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupVision.resx">
+      <DependentUpon>GroupVision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportCurves.resx">
+      <DependentUpon>ImportCurves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManualSort.resx">
+      <DependentUpon>ManualSort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxIgnore.resx">
+      <DependentUpon>MessageBoxIgnore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressReport.resx">
+      <DependentUpon>ProgressReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectableGraph.resx">
+      <DependentUpon>SelectableGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingleCurveComp.resx">
+      <DependentUpon>SingleCurveComp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Youngs.resx">
+      <DependentUpon>Youngs.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Regression.cs" />
+    <Compile Include="Sorts\HistogramSort.cs" />
+    <Compile Include="Sorts\ShakeSorter.cs" />
+    <Compile Include="Relaxations\SimpleShaker.cs" />
+    <Compile Include="Youngs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Youngs.Designer.cs">
+      <DependentUpon>Youngs.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ZedGraph\ZedGraph.csproj">
+      <Project>{2541686B-1673-43BF-AF89-3163945DB009}</Project>
+      <Name>ZedGraph</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
