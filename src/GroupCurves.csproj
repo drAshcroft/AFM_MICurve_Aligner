@@ -105,24 +105,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllGroupVision.cs" />
+    <Compile Include="AllGroupVision.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AllGroupVision.Designer.cs">
       <DependentUpon>AllGroupVision.cs</DependentUpon>
     </Compile>
     <Compile Include="CurveSection.cs" />
-    <Compile Include="DataMessageBox.cs" />
+    <Compile Include="DataMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DataMessageBox.Designer.cs">
       <DependentUpon>DataMessageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="GroupName.cs" />
+    <Compile Include="GroupName.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GroupName.Designer.cs">
       <DependentUpon>GroupName.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphSeperate.cs" />
+    <Compile Include="GraphSeperate.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GraphSeperate.Designer.cs">
       <DependentUpon>GraphSeperate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImportCurves.cs" />
+    <Compile Include="ImportCurves.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ImportCurves.Designer.cs">
       <DependentUpon>ImportCurves.cs</DependentUpon>
     </Compile>
@@ -132,19 +142,27 @@
     <Compile Include="Loaders\LoadNIDat.cs" />
     <Compile Include="Loaders\MatLabLoader.cs" />
     <Compile Include="Loaders\TextLoader.cs" />
-    <Compile Include="ManualSort.cs" />
+    <Compile Include="ManualSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ManualSort.Designer.cs">
       <DependentUpon>ManualSort.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxIgnore.cs" />
+    <Compile Include="MessageBoxIgnore.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MessageBoxIgnore.Designer.cs">
       <DependentUpon>MessageBoxIgnore.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgressReport.cs" />
+    <Compile Include="ProgressReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProgressReport.Designer.cs">
       <DependentUpon>ProgressReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectableGraph.cs" />
+    <Compile Include="SelectableGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SelectableGraph.Designer.cs">
       <DependentUpon>SelectableGraph.cs</DependentUpon>
     </Compile>
@@ -167,7 +185,9 @@
     <Compile Include="Groups\GroupBin.cs" />
     <Compile Include="Groups\GroupBins.cs" />
     <Compile Include="Groups\GroupHolders.cs" />
-    <Compile Include="GroupVision.cs" />
+    <Compile Include="GroupVision.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GroupVision.Designer.cs">
       <DependentUpon>GroupVision.cs</DependentUpon>
     </Compile>
